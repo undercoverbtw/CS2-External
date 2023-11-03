@@ -43,7 +43,7 @@ typedef struct _CLIENT_ID
 STRUCTURES NEEDED FOR HANDLE INFORMATION:
 */
 
-typedef struct _SYSTEM_HANDLE_TABLE_ENTRY_INFO
+typedef struct _SYSTEM_handleTABLE_ENTRY_INFO
 {
 	ULONG ProcessId;
 	BYTE ObjectTypeNumber;
@@ -53,11 +53,11 @@ typedef struct _SYSTEM_HANDLE_TABLE_ENTRY_INFO
 	ACCESS_MASK GrantedAccess;
 } SYSTEM_HANDLE, * PSYSTEM_HANDLE; //i shortened it to SYSTEM_HANDLE for the sake of typing
 
-typedef struct _SYSTEM_HANDLE_INFORMATION
+typedef struct _SYSTEM_handleINFORMATION
 {
 	ULONG HandleCount;
 	SYSTEM_HANDLE Handles[1];
-} SYSTEM_HANDLE_INFORMATION, * PSYSTEM_HANDLE_INFORMATION;
+} SYSTEM_handleINFORMATION, * PSYSTEM_handleINFORMATION;
 
 /*
 FUNCTION PROTOTYPES:
@@ -93,7 +93,7 @@ typedef NTSTATUS(NTAPI* _NtQuerySystemInformation)(
 	PULONG ReturnLength
 	);
 
-SYSTEM_HANDLE_INFORMATION* hInfo; //holds the handle information
+SYSTEM_handleINFORMATION* hInfo; //holds the handle information
 
 //the handles we will need to use later on
 
@@ -198,10 +198,10 @@ namespace hj {
 
 
 		//the size variable is the amount of bytes allocated to store all the open handles
-		DWORD size = sizeof(SYSTEM_HANDLE_INFORMATION);
+		DWORD size = sizeof(SYSTEM_handleINFORMATION);
 
 		//we allocate the memory to store all the handles on the heap rather than the stack becuase of the large amount of data
-		hInfo = (SYSTEM_HANDLE_INFORMATION*) new byte[size];
+		hInfo = (SYSTEM_handleINFORMATION*) new byte[size];
 
 		//zero the memory handle info
 		ZeroMemory(hInfo, size);
@@ -219,7 +219,7 @@ namespace hj {
 			try
 			{
 				//set and allocate the larger size on the heap
-				hInfo = (PSYSTEM_HANDLE_INFORMATION) new byte[size];
+				hInfo = (PSYSTEM_handleINFORMATION) new byte[size];
 			}
 			catch (std::bad_alloc) //catch a bad heap allocation.
 			{
@@ -301,9 +301,6 @@ namespace hj {
 		}
 
 		procHandle ? CloseHandle(procHandle) : 0;
-
-
-		CleanUpAndExit("Succesfully Hijacked");
 
 		return hProcess;
 	}

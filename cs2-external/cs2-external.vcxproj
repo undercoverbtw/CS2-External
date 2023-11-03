@@ -138,10 +138,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="memory\memory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="classes\vector.hpp" />
+    <ClInclude Include="features\hack.h" />
     <ClInclude Include="hijacking\hijacking.h" />
     <ClInclude Include="includes.h" />
+    <ClInclude Include="memory\memory.h" />
+    <ClInclude Include="sdk\entity.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
