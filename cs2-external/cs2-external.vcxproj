@@ -73,10 +73,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)build\release</OutDir>
     <IntDir>$(SolutionDir)build\release\intermediates</IntDir>
+    <IncludePath>C:\Users\elias.mate\source\repos\undercoverbtw\CS2-External\cs2-external\ext\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)build\debug</OutDir>
-    <IntDir>$(SolutionDir)build\debug\intermediates</IntDir>
+    <OutDir>$(SolutionDir)build\debug\</OutDir>
+    <IntDir>$(SolutionDir)build\debug\intermediates\</IntDir>
+    <IncludePath>$(SolutionDir)cs2-external\ext\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -142,7 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes\vector.hpp" />
-    <ClInclude Include="extern\consolecolors.h" />
+    <ClInclude Include="ext\consolecolors.h" />
     <ClInclude Include="features\hack.h" />
     <ClInclude Include="hijacking\hijacking.h" />
     <ClInclude Include="includes.h" />

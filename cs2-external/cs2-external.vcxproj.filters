@@ -41,7 +41,7 @@
     <ClInclude Include="classes\vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="extern\consolecolors.h">
+    <ClInclude Include="ext\consolecolors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

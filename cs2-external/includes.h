@@ -11,7 +11,7 @@
 #include "memory/memory.h"
 #include "features/hack.h"
 #include "classes/vector.hpp"
-#include "extern/consolecolors.h"
+#include "ext/consolecolors.h"
 
 namespace chooseyourownname
 {
