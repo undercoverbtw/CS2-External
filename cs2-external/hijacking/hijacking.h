@@ -142,30 +142,22 @@ namespace hj {
 	}
 
 
-	DWORD GetPID(LPCSTR procName)
-	{
-		//create a process snapshot
-		HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, false);
-		if (hSnap && hSnap != INVALID_HANDLE_VALUE) //check the snapshot succeded
-		{
-			PROCESSENTRY32 procEntry;
+	DWORD GetPID(const std::wstring& processName) {
+		PROCESSENTRY32W processEntry;
+		processEntry.dwSize = sizeof(PROCESSENTRY32W);
+		HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
 
-			//zero the memory containing the file names
-			ZeroMemory(procEntry.szExeFile, sizeof(procEntry.szExeFile));
-
-			//repeat the loop until a name matches the desired name
-			do
-			{
-				if (lstrcmpi(procEntry.szExeFile, procName) == NULL) {
-					return procEntry.th32ProcessID;
-					CloseHandle(hSnap);
+		if (Process32FirstW(snapshot, &processEntry)) {
+			do {
+				if (_wcsicmp(processEntry.szExeFile, processName.c_str()) == 0) {
+					CloseHandle(snapshot);
+					return processEntry.th32ProcessID;
 				}
-			} while (Process32Next(hSnap, &procEntry));
-
-
+			} while (Process32NextW(snapshot, &processEntry));
 		}
 
-
+		CloseHandle(snapshot);
+		return 0; // Process not found
 	}
 
 	HANDLE HijackExistingHandle(DWORD dwTargetProcessId)

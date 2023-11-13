@@ -50,7 +50,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -73,7 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)build\release\</OutDir>
     <IntDir>$(SolutionDir)build\release\intermediates\</IntDir>
-    <IncludePath>$(SolutionDir)cs2-external\ext\imgui;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)cs2-external\ext\rendering;$(SolutionDir)cs2-external\ext\rendering\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)build\debug\</OutDir>
@@ -139,12 +139,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ext\rendering\imgui\custom.cpp" />
+    <ClCompile Include="ext\rendering\imgui\imgui.cpp" />
+    <ClCompile Include="ext\rendering\imgui\imgui_draw.cpp" />
+    <ClCompile Include="ext\rendering\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="ext\rendering\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="ext\rendering\imgui\imgui_tables.cpp" />
+    <ClCompile Include="ext\rendering\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="ext\rendering\OS-ImGui.cpp" />
+    <ClCompile Include="ext\rendering\OS-ImGui_Base.cpp" />
+    <ClCompile Include="ext\rendering\OS-ImGui_External.cpp" />
+    <ClCompile Include="features\hack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="memory\memory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes\vector.hpp" />
     <ClInclude Include="ext\consolecolors.h" />
+    <ClInclude Include="ext\rendering\imgui\bytes.hpp" />
+    <ClInclude Include="ext\rendering\imgui\clash.h" />
+    <ClInclude Include="ext\rendering\imgui\color.h" />
+    <ClInclude Include="ext\rendering\imgui\custom.h" />
+    <ClInclude Include="ext\rendering\imgui\ico_pack.h" />
+    <ClInclude Include="ext\rendering\imgui\imconfig.h" />
+    <ClInclude Include="ext\rendering\imgui\imgui.h" />
+    <ClInclude Include="ext\rendering\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="ext\rendering\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="ext\rendering\imgui\imgui_internal.h" />
+    <ClInclude Include="ext\rendering\imgui\imstb_rectpack.h" />
+    <ClInclude Include="ext\rendering\imgui\imstb_textedit.h" />
+    <ClInclude Include="ext\rendering\imgui\imstb_truetype.h" />
+    <ClInclude Include="ext\rendering\OS-ImGui.h" />
+    <ClInclude Include="ext\rendering\OS-ImGui_Base.h" />
+    <ClInclude Include="ext\rendering\OS-ImGui_Exception.hpp" />
+    <ClInclude Include="ext\rendering\OS-ImGui_External.h" />
+    <ClInclude Include="ext\rendering\OS-ImGui_Struct.h" />
     <ClInclude Include="features\hack.h" />
     <ClInclude Include="hijacking\hijacking.h" />
     <ClInclude Include="includes.h" />

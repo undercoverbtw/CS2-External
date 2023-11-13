@@ -1,22 +1,31 @@
 #include "includes.h"
+#include <OS-ImGui_Exception.hpp>
+#include <OS-ImGui.h>
 
 int main()
 {
 
-	SetConsoleTitle("Undercover");
+	auto io = ImGui::GetStyle();
+
+	io.WindowBorderSize = 0;
+
+	SetConsoleTitleA("Undercover");
 
 	chooseyourownname::initialization();
 
-	while (true)
-	{
-		const uintptr_t local_player = hack::process->read<uintptr_t>(hack::client.base + offsets::local_player);
-		int health = hack::process->read<int>(local_player + offsets::health);
-
-		std::cout << red << "Health: " << health << white << std::endl;
-
 		// best lmao
-		system("pause");
+	
+
+	try
+	{
+		Gui.AttachAnotherWindow("Counter-Strike 2", "SDL_app", cheats::run);
 	}
+	catch (OSImGui::OSException& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	Sleep(500000);
 
 	return 0;
 }
