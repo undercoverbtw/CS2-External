@@ -13,6 +13,11 @@
 #include "classes/vector.hpp"
 #include "ext/consolecolors.h"
 
+#include "ext/imgui/imgui.h"
+#include "ext/imgui/imgui_impl_dx11.h"
+#include "ext/imgui/imgui_impl_win32.h"
+#include "ext/imgui/imgui_internal.h"
+
 namespace chooseyourownname
 {
 	const std::string currentDateTime() {
