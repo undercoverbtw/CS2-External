@@ -1,7 +1,5 @@
 #pragma once
-// ConsoleColor.h
 
-#pragma once
 #include <iostream>
 #include <windows.h>
 
