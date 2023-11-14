@@ -3,7 +3,7 @@
 #include <cmath>
 
 
-struct view_matrix_t {
+struct view_matrix {
 	float* operator[ ](int index) {
 		return matrix[index];
 	}
@@ -58,7 +58,7 @@ struct Vector3
 	}
 
 	// utils
-	constexpr const Vector3& ToAngle() const noexcept
+	constexpr const Vector3& to_angle() const noexcept
 	{
 		return Vector3{
 			std::atan2(-z, std::hypot(x, y)) * (180.0f / std::numbers::pi_v<float>),
