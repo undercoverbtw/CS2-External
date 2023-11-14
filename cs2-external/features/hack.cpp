@@ -1,26 +1,9 @@
 #include "hack.h"
-#include "../ext/rendering/OS-ImGui_Struct.h"
-#include "../ext/consolecolors.h"
-#include "../ext/rendering/imgui/custom.h"
-
-
-
-
-void cheats::menu()
-{
-
-	ImGui::StyleColorsDark();
-	ImGui::SetNextWindowSize(ImVec2(500, 300));
-	ImGui::Begin("##Menu", NULL);
-	{
-
-
-	}
-	ImGui::End();
-}
-
-
-
+#include "../core/memory/offsets.h"
+#include "../core/ext/rendering/OS-ImGui_Struct.h"
+#include "../core/ext/rendering/imgui/custom.h"
+#include "../menu/menu.h"
+#include "miscellanous/configsystem.h"
 
 void cheats::run()
 {
@@ -33,16 +16,16 @@ void cheats::run()
 		&& CurTimePoint - LastTimePoint >= std::chrono::milliseconds(150))
 	{
 		// Check key state per 150ms once to avoid loop.
-		cfg.show_menu = !cfg.show_menu;
+		vars.show_menu = !vars.show_menu;
 		LastTimePoint = CurTimePoint;
 	}
 
-	if (cfg.show_menu)
-		menu();
+	if (vars.show_menu)
+		menu::render();
 
 
-	//const uintptr_t local_player = hack::process->read<uintptr_t>(hack::client.base + offsets::local_player);
-	//int health = hack::process->read<int>(local_player + offsets::health);
+	const uintptr_t local_player = cheat::process->read<uintptr_t>(cheat::client.base + offsets::local_player);
+	int health = cheat::process->read<int>(local_player + offsets::health);
 
 	//std::cout << red << "Health: " << health << white << std::endl;
 

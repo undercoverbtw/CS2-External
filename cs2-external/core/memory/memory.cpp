@@ -121,37 +121,6 @@ bool memory::attach_process_hj(const char* process_name)
     return false;
 }
 
-bool memory::attach_window(const char* window_name)
-{
-    this->process_id = find_process_id_by_window_name(window_name);
-
-    if (process_id)
-    {
-        HMODULE modules[0xFF];
-        MODULEINFO module_info;
-        DWORD _;
-
-        handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, process_id);
-
-        EnumProcessModulesEx(this->handle, modules, sizeof(modules), &_, LIST_MODULES_64BIT);
-        base_client.base = (uintptr_t)modules[0];
-
-        GetModuleInformation(this->handle, modules[0], &module_info, sizeof(module_info));
-        base_client.size = module_info.SizeOfImage;
-
-        hwnd = get_window_handle_from_process_id(process_id);
-
-        return true;
-    }
-    return false;
-}
-
-bool memory::update_hwnd()
-{
-    hwnd = get_window_handle_from_process_id(process_id);
-    return hwnd == nullptr;
-}
-
 process_module memory::get_module(const char* l_module)
 {
     std::wstring wide_module;

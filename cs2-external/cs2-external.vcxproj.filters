@@ -18,40 +18,49 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="memory\memory.cpp">
+    <ClCompile Include="core\memory\memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\imgui\imgui.cpp">
+    <ClCompile Include="core\ext\rendering\imgui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\imgui\imgui_draw.cpp">
+    <ClCompile Include="core\ext\rendering\imgui\imgui_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\imgui\imgui_impl_dx11.cpp">
+    <ClCompile Include="core\ext\rendering\imgui\imgui_impl_dx11.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\imgui\imgui_impl_win32.cpp">
+    <ClCompile Include="core\ext\rendering\imgui\imgui_impl_win32.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\imgui\imgui_tables.cpp">
+    <ClCompile Include="core\ext\rendering\imgui\imgui_tables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\imgui\imgui_widgets.cpp">
+    <ClCompile Include="core\ext\rendering\imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\OS-ImGui.cpp">
+    <ClCompile Include="core\ext\rendering\OS-ImGui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\OS-ImGui_Base.cpp">
+    <ClCompile Include="core\ext\rendering\OS-ImGui_Base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\OS-ImGui_External.cpp">
+    <ClCompile Include="core\ext\rendering\OS-ImGui_External.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="features\hack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\rendering\imgui\custom.cpp">
+    <ClCompile Include="core\ext\rendering\imgui\custom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\memory\offsets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="features\miscellanous\configsystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,76 +68,85 @@
     <ClInclude Include="includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hijacking\hijacking.h">
+    <ClInclude Include="core\hijacking\hijacking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="memory\memory.h">
+    <ClInclude Include="core\memory\memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\entity.h">
+    <ClInclude Include="core\valve-sdk\entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="features\hack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="classes\vector.hpp">
+    <ClInclude Include="core\valve-sdk\math\classes\vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\consolecolors.h">
+    <ClInclude Include="core\ext\consolecolors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\imconfig.h">
+    <ClInclude Include="core\ext\rendering\imgui\imconfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\imgui.h">
+    <ClInclude Include="core\ext\rendering\imgui\imgui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\imgui_impl_dx11.h">
+    <ClInclude Include="core\ext\rendering\imgui\imgui_impl_dx11.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\imgui_impl_win32.h">
+    <ClInclude Include="core\ext\rendering\imgui\imgui_impl_win32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\imgui_internal.h">
+    <ClInclude Include="core\ext\rendering\imgui\imgui_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\imstb_rectpack.h">
+    <ClInclude Include="core\ext\rendering\imgui\imstb_rectpack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\imstb_textedit.h">
+    <ClInclude Include="core\ext\rendering\imgui\imstb_textedit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\imstb_truetype.h">
+    <ClInclude Include="core\ext\rendering\imgui\imstb_truetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\OS-ImGui.h">
+    <ClInclude Include="core\ext\rendering\OS-ImGui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\OS-ImGui_Base.h">
+    <ClInclude Include="core\ext\rendering\OS-ImGui_Base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\OS-ImGui_Exception.hpp">
+    <ClInclude Include="core\ext\rendering\OS-ImGui_Exception.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\OS-ImGui_External.h">
+    <ClInclude Include="core\ext\rendering\OS-ImGui_External.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\OS-ImGui_Struct.h">
+    <ClInclude Include="core\ext\rendering\OS-ImGui_Struct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\bytes.hpp">
+    <ClInclude Include="core\ext\rendering\imgui\bytes.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\clash.h">
+    <ClInclude Include="core\ext\rendering\imgui\clash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\color.h">
+    <ClInclude Include="core\ext\rendering\imgui\color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\custom.h">
+    <ClInclude Include="core\ext\rendering\imgui\custom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\rendering\imgui\ico_pack.h">
+    <ClInclude Include="core\ext\rendering\imgui\ico_pack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\memory\offsets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="features\miscellanous\configsystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

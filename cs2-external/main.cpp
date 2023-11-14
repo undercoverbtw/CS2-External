@@ -13,9 +13,8 @@ int main()
 
 	chooseyourownname::initialization();
 
-		// best lmao
+	// best lmao
 	
-
 	try
 	{
 		Gui.AttachAnotherWindow("Counter-Strike 2", "SDL_app", cheats::run);

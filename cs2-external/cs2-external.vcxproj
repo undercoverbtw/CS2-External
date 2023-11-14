@@ -73,12 +73,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)build\release\</OutDir>
     <IntDir>$(SolutionDir)build\release\intermediates\</IntDir>
-    <IncludePath>$(SolutionDir)cs2-external\ext\rendering;$(SolutionDir)cs2-external\ext\rendering\imgui;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)cs2-external\core\ext\rendering;$(SolutionDir)cs2-external\core\ext\rendering\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)build\debug\</OutDir>
     <IntDir>$(SolutionDir)build\debug\intermediates\</IntDir>
-    <IncludePath>$(SolutionDir)cs2-external\ext\imgui;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)cs2-external\core\ext\rendering;$(SolutionDir)cs2-external\core\ext\rendering\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -123,7 +123,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
@@ -139,46 +139,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ext\rendering\imgui\custom.cpp" />
-    <ClCompile Include="ext\rendering\imgui\imgui.cpp" />
-    <ClCompile Include="ext\rendering\imgui\imgui_draw.cpp" />
-    <ClCompile Include="ext\rendering\imgui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="ext\rendering\imgui\imgui_impl_win32.cpp" />
-    <ClCompile Include="ext\rendering\imgui\imgui_tables.cpp" />
-    <ClCompile Include="ext\rendering\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="ext\rendering\OS-ImGui.cpp" />
-    <ClCompile Include="ext\rendering\OS-ImGui_Base.cpp" />
-    <ClCompile Include="ext\rendering\OS-ImGui_External.cpp" />
+    <ClCompile Include="core\ext\rendering\imgui\custom.cpp" />
+    <ClCompile Include="core\ext\rendering\imgui\imgui.cpp" />
+    <ClCompile Include="core\ext\rendering\imgui\imgui_draw.cpp" />
+    <ClCompile Include="core\ext\rendering\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="core\ext\rendering\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="core\ext\rendering\imgui\imgui_tables.cpp" />
+    <ClCompile Include="core\ext\rendering\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="core\ext\rendering\OS-ImGui.cpp" />
+    <ClCompile Include="core\ext\rendering\OS-ImGui_Base.cpp" />
+    <ClCompile Include="core\ext\rendering\OS-ImGui_External.cpp" />
+    <ClCompile Include="core\memory\offsets.cpp" />
     <ClCompile Include="features\hack.cpp" />
+    <ClCompile Include="features\miscellanous\configsystem.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="memory\memory.cpp" />
+    <ClCompile Include="core\memory\memory.cpp" />
+    <ClCompile Include="menu\menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="classes\vector.hpp" />
-    <ClInclude Include="ext\consolecolors.h" />
-    <ClInclude Include="ext\rendering\imgui\bytes.hpp" />
-    <ClInclude Include="ext\rendering\imgui\clash.h" />
-    <ClInclude Include="ext\rendering\imgui\color.h" />
-    <ClInclude Include="ext\rendering\imgui\custom.h" />
-    <ClInclude Include="ext\rendering\imgui\ico_pack.h" />
-    <ClInclude Include="ext\rendering\imgui\imconfig.h" />
-    <ClInclude Include="ext\rendering\imgui\imgui.h" />
-    <ClInclude Include="ext\rendering\imgui\imgui_impl_dx11.h" />
-    <ClInclude Include="ext\rendering\imgui\imgui_impl_win32.h" />
-    <ClInclude Include="ext\rendering\imgui\imgui_internal.h" />
-    <ClInclude Include="ext\rendering\imgui\imstb_rectpack.h" />
-    <ClInclude Include="ext\rendering\imgui\imstb_textedit.h" />
-    <ClInclude Include="ext\rendering\imgui\imstb_truetype.h" />
-    <ClInclude Include="ext\rendering\OS-ImGui.h" />
-    <ClInclude Include="ext\rendering\OS-ImGui_Base.h" />
-    <ClInclude Include="ext\rendering\OS-ImGui_Exception.hpp" />
-    <ClInclude Include="ext\rendering\OS-ImGui_External.h" />
-    <ClInclude Include="ext\rendering\OS-ImGui_Struct.h" />
+    <ClInclude Include="core\memory\offsets.h" />
+    <ClInclude Include="core\valve-sdk\math\classes\vector.h" />
+    <ClInclude Include="core\ext\consolecolors.h" />
+    <ClInclude Include="core\ext\rendering\imgui\bytes.hpp" />
+    <ClInclude Include="core\ext\rendering\imgui\clash.h" />
+    <ClInclude Include="core\ext\rendering\imgui\color.h" />
+    <ClInclude Include="core\ext\rendering\imgui\custom.h" />
+    <ClInclude Include="core\ext\rendering\imgui\ico_pack.h" />
+    <ClInclude Include="core\ext\rendering\imgui\imconfig.h" />
+    <ClInclude Include="core\ext\rendering\imgui\imgui.h" />
+    <ClInclude Include="core\ext\rendering\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="core\ext\rendering\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="core\ext\rendering\imgui\imgui_internal.h" />
+    <ClInclude Include="core\ext\rendering\imgui\imstb_rectpack.h" />
+    <ClInclude Include="core\ext\rendering\imgui\imstb_textedit.h" />
+    <ClInclude Include="core\ext\rendering\imgui\imstb_truetype.h" />
+    <ClInclude Include="core\ext\rendering\OS-ImGui.h" />
+    <ClInclude Include="core\ext\rendering\OS-ImGui_Base.h" />
+    <ClInclude Include="core\ext\rendering\OS-ImGui_Exception.hpp" />
+    <ClInclude Include="core\ext\rendering\OS-ImGui_External.h" />
+    <ClInclude Include="core\ext\rendering\OS-ImGui_Struct.h" />
     <ClInclude Include="features\hack.h" />
-    <ClInclude Include="hijacking\hijacking.h" />
+    <ClInclude Include="core\hijacking\hijacking.h" />
+    <ClInclude Include="features\miscellanous\configsystem.h" />
     <ClInclude Include="includes.h" />
-    <ClInclude Include="memory\memory.h" />
-    <ClInclude Include="sdk\entity.h" />
+    <ClInclude Include="core\memory\memory.h" />
+    <ClInclude Include="core\valve-sdk\entity.h" />
+    <ClInclude Include="menu\menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

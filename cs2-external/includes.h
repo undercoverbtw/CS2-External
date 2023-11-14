@@ -8,10 +8,10 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "memory/memory.h"
+#include "core/memory/memory.h"
 #include "features/hack.h"
-#include "classes/vector.hpp"
-#include "ext/consolecolors.h"
+#include "core/valve-sdk/math/classes/vector.h"
+#include "core/ext/consolecolors.h"
 
 
 namespace chooseyourownname
@@ -29,7 +29,7 @@ namespace chooseyourownname
 	}
 	inline void initialization()
 	{
-		hack::process = std::make_shared<memory>();
+		cheat::process = std::make_shared<memory>();
 
 		std::cout << red << "[" << currentDateTime() << "] "
 			<< white << "Welcome\n";
@@ -42,49 +42,48 @@ namespace chooseyourownname
 		std::cout << red << "[" << currentDateTime() << "] "
 			<< white << "Waiting for cs2.exe\n";
 
-		while (!hack::process->attach_process_hj("cs2.exe"))
+		while (!cheat::process->attach_process_hj("chrome.exe"))
 			std::this_thread::sleep_for(std::chrono::seconds(1));
 
+		putchar('\n');
 		std::this_thread::sleep_for(std::chrono::seconds(1));
-		std::cout << red << "------------------------"
-			<< white << "Attaching to cs2" << red << "------------------------------\n";
+		std::cout << red << "------------------------------------------------------\n";
 
+		putchar('\n');
 		std::this_thread::sleep_for(std::chrono::seconds(1));
 		std::cout << red << "[" << currentDateTime() << "] "
 			<< white << "Attached to cs2.exe\n";
 
+		putchar('\n');
 
 		do {
-			hack::client = hack::process->get_module("client.dll");
-			hack::engine = hack::process->get_module("engine2.dll");
-			if (hack::client.base == 0 || hack::engine.base == 0) {
+			cheat::client = cheat::process->get_module("client.dll");
+			cheat::engine = cheat::process->get_module("engine2.dll");
+			if (cheat::client.base == 0 || cheat::engine.base == 0) {
 				std::this_thread::sleep_for(std::chrono::seconds(1));
 			}
-		} while (hack::client.base == 0 || hack::engine.base == 0);
+		} while (cheat::client.base == 0 || cheat::engine.base == 0);
 
-		if (!hack::client.base == 0 || !hack::engine.base == 0)
+		if (!cheat::client.base == 0 || !cheat::engine.base == 0)
 		{
 
 			std::this_thread::sleep_for(std::chrono::seconds(1));
-			std::cout << red << "------------------------"
-				<< white << "Searching for modules" << red << "------------------------------\n";
-
+			std::cout << red << "------------------------------------------------------\n";
+			putchar('\n');
 			std::this_thread::sleep_for(std::chrono::seconds(2));
 			std::cout << red << "[" << currentDateTime() << "] "
 				<< white << "Client module found\n";
-
+			putchar('\n');
 			std::this_thread::sleep_for(std::chrono::seconds(2));
 			std::cout << red << "[" << currentDateTime() << "] "
 				<< white << "Engine module found\n";
-
+			putchar('\n');
 			std::this_thread::sleep_for(std::chrono::seconds(1));
-			std::cout << red << "------------------------"
-				<< white << "Made by Undercover" << red << "------------------------------\n";
-
+			std::cout << red << "------------------------------------------------------\n";
 			std::this_thread::sleep_for(std::chrono::seconds(1));
 			std::cout << red << "[" << currentDateTime() << "] "
 				<< white << "Have fun!\n";
-
+			putchar('\n');
 			std::this_thread::sleep_for(std::chrono::seconds(1));
 			std::cout << red << "------------------------"
 				<< white << "Debug logs" << red << "------------------------------\n";
@@ -99,21 +98,4 @@ namespace chooseyourownname
 		}
 	}
 
-}
-
-namespace offsets {
-	inline std::ptrdiff_t local_player = 0x16B9388;
-	inline std::ptrdiff_t entity_list = 0x17ADAE0;
-	inline std::ptrdiff_t view_matrix = 0x1899070;
-
-
-	inline std::ptrdiff_t vec_abs_origin = 0xC8;
-	inline std::ptrdiff_t game_scene_node = 0x310;
-	inline std::ptrdiff_t name = 0xC18;
-	inline std::ptrdiff_t health = 0x32C;
-	inline std::ptrdiff_t player_pawn = 0x7BC;
-	inline std::ptrdiff_t sanatized_name = 0x720;
-	inline std::ptrdiff_t team_num = 0x3BF;
-
-	inline std::ptrdiff_t vec_origin = 0x1224;
 }
