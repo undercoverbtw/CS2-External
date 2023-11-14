@@ -25,7 +25,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-	Sleep(500000);
+	// sleep for fix
 
 	return 0;
 }
