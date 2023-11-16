@@ -49,3 +49,5 @@
 *.iobj
 *.ipdb
 .vs/cs2-external/v16/.suo
+.vs/CS2-External-Remake/v17/.suo
+*.bin
