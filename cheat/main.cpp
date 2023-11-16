@@ -5,9 +5,9 @@
 
 int main()
 {
-	auto mem = Memory("cs2.exe");
-
-	const auto client = mem.GetModuleAdress("client.dll");
+   auto mem = Memory("cs2.exe");
+	
+   const auto client = mem.GetModuleAdress("client.dll");
 
    render.overlay(features::run);
 
